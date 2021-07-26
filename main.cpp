@@ -65,8 +65,11 @@ void game(){
         cout << "It's player " << current_player << "'s turn. Enter your slot : ";
         int slot;
         cin >> slot;
-        while (!placeMarker(slot)){
-            placeMarker(slot);
+        bool yn= placeMarker(slot);
+        while(!yn){
+            cout << "That space already occupied please enter another position : ";
+            cin >> slot;
+            yn= placeMarker(slot);
         }
         swap_player_and_marker();
         drawBoard();
